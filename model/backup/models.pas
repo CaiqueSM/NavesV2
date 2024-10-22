@@ -8,48 +8,47 @@ uses
   crt;
 
 type
-  Rows   = array of integer;
+  Rows = array of integer;
   Column = array of Rows;
 
   TMatrix = class
   private
-    TMatrixGrid:    Column;
+    TMatrixGrid: Column;
     TMatrixLengthM: integer;
     TMatrixLengthN: integer;
   public
-    property Grid: Column Read TMatrixGrid Write TMatrixGrid;
-    property LengthM: integer Read TMatrixLengthM;
-    property LengthN: integer Read TMatrixLengthN;
+    property Grid: Column read TMatrixGrid write TMatrixGrid;
+    property LengthM: integer read TMatrixLengthM;
+    property LengthN: integer read TMatrixLengthN;
+  private
+    procedure ReSize(m, n: integer);
   public
     constructor Create(m, n: integer);
-    procedure ReSize(m, n: integer);
     procedure ClearAll;
-    //destructor Destroy(); override;
   end;
 
-  Person = class
+  Character = class
 
   private
-    PersonColor:     byte;
-    PersonGrid:      TMatrix;
-    PersonState:     boolean;
-    PersonDirection: word;
-    PersonPositionX: integer;
-    PersonPositionY: integer;
-    PersonIdentity:  integer;
+    CharacterColor: byte;
+    CharacterGrid: TMatrix;
+    CharacterState: boolean;
+    CharacterDirection: word;
+    CharacterPositionX: integer;
+    CharacterPositionY: integer;
+    CharacterIdentity: integer;
 
   public
-    property Color: byte Read PersonColor Write PersonColor;
-    property Direction: word Read PersonDirection Write PersonDirection;
-    property Shape: TMatrix Read PersonGrid Write PersonGrid;
-    property State: boolean Read PersonState Write PersonState;
-    property PositionX: integer Read PersonPositionX Write PersonPositionX;
-    property PositionY: integer Read PersonPositionY Write PersonPositionY;
-    property Identity: integer Read PersonIdentity Write PersonIdentity;
+    property Color: byte read CharacterColor write CharacterColor;
+    property Direction: word read CharacterDirection write CharacterDirection;
+    property Shape: TMatrix read CharacterGrid write CharacterGrid;
+    property State: boolean read CharacterState write CharacterState;
+    property PositionX: integer read CharacterPositionX write CharacterPositionX;
+    property PositionY: integer read CharacterPositionY write CharacterPositionY;
+    property Identity: integer read CharacterIdentity write CharacterIdentity;
 
   public
     constructor Create(m, n: integer);
-    //destructor Destroy; override;
   end;
 
   Stage = class
@@ -58,7 +57,7 @@ type
     StageGrid: TMatrix;
 
   public
-    property Grid: TMatrix Read StageGrid Write StageGrid;
+    property Grid: TMatrix read StageGrid write StageGrid;
 
   public
     constructor Create(m, n: integer);
@@ -95,24 +94,14 @@ begin
       Grid[row][column] := 0;
 end;
 
-//destructor TMatrix.Destroy();
-//begin
-//  Grid := nil;
-//end;
-
-{Person}
-constructor Person.Create(m, n: integer);
+{Character}
+constructor Character.Create(m, n: integer);
 begin
   PositionX := 0;
   PositionY := 0;
-  Shape     := TMatrix.Create(m, n);
+  Shape := TMatrix.Create(m, n);
   Shape.ClearAll;
 end;
-
-//destructor Person.Destroy;
-//begin
-//  Dispose(Pinteger(Self));
-//end;
 
 {Stage}
 constructor Stage.Create(m, n: integer);
