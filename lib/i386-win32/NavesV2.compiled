@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.2.0\bin\i386-win32\fpc.exe" Date="1381338394"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -FiC:\Users\Caíque\Documents\Jogos\Naves-v2\lib\i386-win32 -FuC:\Users\Caíque\Documents\Jogos\Naves-v2\model -FuC:\Users\Caíque\Documents\Jogos\Naves-v2\ -FUC:\Users\Caíque\Documents\Jogos\Naves-v2\lib\i386-win32\ -FEC:\Users\Caíque\Documents\Jogos\Naves-v2\ -oC:\Users\Caíque\Documents\Jogos\Naves-v2\NavesV2.exe NavesV2.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>
